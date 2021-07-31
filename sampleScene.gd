@@ -6,7 +6,7 @@ const PlatformRoom = preload("res://rooms/PlatformRoom.tscn")
 const Rubble = preload("res://rooms/Rubble.tscn")
 const TreasureRoom = preload("res://rooms/TreasureRoom.tscn")
 
-var size = 5
+var size = 7
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

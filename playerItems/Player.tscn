@@ -25,6 +25,7 @@ shape = SubResource( 1 )
 one_way_collision_margin = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
+use_parent_material = true
 current = true
 smoothing_enabled = true
 smoothing_speed = 9.0

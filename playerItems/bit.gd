@@ -18,7 +18,6 @@ var blinkTimer = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.get_child(0).color = globals.playerFactionColor
-	print(globals.playerFactionColor)
 	rng.randomize()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
