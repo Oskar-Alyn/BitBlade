@@ -18,14 +18,14 @@ func _ready():
 	for x in size:
 		for y in size:
 			var Instance
-			match rng.randi_range(0, 3):
-				0:
+			match rng.randi_range(0, 5):
+				0, 1:
 					Instance = MonsterRoom.instance()
-				1:
+				2, 3:
 					Instance = PlatformRoom.instance()
-				2:
+				4:
 					Instance = Rubble.instance()
-				3:
+				5:
 					Instance = TreasureRoom.instance()
 			self.add_child(Instance)
 			Instance.position.x = 2*496*(x-floor(size/2))

@@ -38,7 +38,6 @@ func _physics_process (delta):
 	if Input.is_action_pressed("move_right"):
 		vel.x += speed
 		isFacingRight = true
-	vel = move_and_slide(vel, Vector2.UP)
 	
 	vel.y += gravity * delta
 	
@@ -57,6 +56,16 @@ func _physics_process (delta):
 			coyote = 0
 	
 	if (self.position.y > 1500):
-		self.position.y = 0
-		self.position.x = 0
-		print("Temporary death mechanic")
+		die()
+		
+	# actual motion
+	vel = move_and_slide(vel, Vector2.UP)
+
+func takeDamage(damage):
+	die()
+
+func die():
+	self.position.y = 0
+	self.position.x = 0
+	print("Temporary death mechanic")
+	
