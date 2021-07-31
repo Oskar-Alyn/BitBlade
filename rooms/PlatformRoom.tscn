@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Platform.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RoomOutline.tscn" type="PackedScene" id=2]
+
+[node name="PlatformRoom" type="Node2D"]
+
+[node name="RoomOutline" parent="." instance=ExtResource( 2 )]
+
+[node name="Platform" parent="." instance=ExtResource( 1 )]
+position = Vector2( -256, 176 )
+
+[node name="Platform2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 176 )
+
+[node name="Platform3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 48 )
+
+[node name="Platform4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, -176 )
+
+[node name="Platform6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 352, -64 )
+
+[node name="Platform5" parent="." instance=ExtResource( 1 )]
+position = Vector2( -352, -64 )
