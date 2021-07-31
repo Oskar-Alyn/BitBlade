@@ -1,5 +1,7 @@
 extends Node
 
+onready var globals = get_node("/root/Globals")
+
 var rng = RandomNumberGenerator.new()
 
 var blinkRate = rng.randf_range(0.6, 3.5)
@@ -15,6 +17,8 @@ var blinkTimer = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.get_child(0).color = globals.playerFactionColor
+	print(globals.playerFactionColor)
 	rng.randomize()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,7 +26,7 @@ func _process(delta):
 	blink_logic(delta)
 
 func _physics_process(delta):
-	var player = get_tree().get_root().get_child(0).get_node("Player")
+	var player = get_tree().get_root().get_child(1).get_node("Player")
 	var vectorToPlayer = player.global_position - self.global_position
 	
 	if !connected and player != null:
@@ -59,12 +63,12 @@ func blink_logic(delta):
 	if blinkTimer + offset > blinkRate:
 		blinkRate = rng.randf_range(0.6, 3.5)
 		blinkTimer -= 3;
-		if child.color == Color(0, 255, 0):
+		if child.color == globals.playerFactionColor:
 			blinkRate = rng.randf_range(0.6, 1.5)
 			child.color = Color(10, 10, 10)
 		else:
 			blinkRate = rng.randf_range(2, 4.5)
-			child.color = Color(0, 255, 0)
+			child.color = globals.playerFactionColor
 
 func _on_Bit_body_entered(body):
 	if connected:

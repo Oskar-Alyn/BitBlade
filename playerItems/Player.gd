@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+onready var globals = get_node("/root/Globals")
 
 # Declare member variables here. Examples:
 var speed : int = 500
@@ -23,7 +24,7 @@ var bits = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	self.get_node("Accent").color = globals.playerFactionColor
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,12 +33,17 @@ func _ready():
 
 func _physics_process (delta):
 	vel.x = 0
+	var accent = self.get_node("Accent")
 	if Input.is_action_pressed("move_left"):
 		vel.x -= speed
 		isFacingRight = false
+		accent.margin_left = -8
+		accent.margin_right = 0
 	if Input.is_action_pressed("move_right"):
 		vel.x += speed
 		isFacingRight = true
+		accent.margin_left = 0
+		accent.margin_right = 8
 	
 	vel.y += gravity * delta
 	

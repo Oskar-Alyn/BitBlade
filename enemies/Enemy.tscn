@@ -21,5 +21,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Accent" type="ColorRect" parent="."]
+margin_top = -8.0
+margin_right = 16.0
+margin_bottom = -4.0
+color = Color( 1, 1, 1, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
